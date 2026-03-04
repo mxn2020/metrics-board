@@ -1,4 +1,5 @@
 import { Plus, GripVertical, BarChart3, Hash, Table, Trash2 } from "lucide-react";
+import { Button, Card } from "@geenius-ui/react-css";
 
 export default function WidgetEditorPage() {
     const widgets = [
@@ -12,14 +13,14 @@ export default function WidgetEditorPage() {
     return (<div style={{ padding: "var(--space-6)", maxWidth: 1000 }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "var(--space-6)" }}>
             <h1 style={{ fontSize: "var(--font-size-2xl)", fontWeight: 700 }}>Widget Editor</h1>
-            <button className="btn btn-primary"><Plus size={16} /> Add Widget</button>
+            <Button variant="primary" icon={<Plus size={16} />}>Add Widget</Button>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
             {widgets.map(w => {
                 const Icon = typeIcons[w.type] || Hash;
                 return (
-                    <div key={w.id} className="card" style={{ display: "flex", overflow: "hidden" }}>
+                    <Card key={w.id} padding="none" style={{ display: "flex", overflow: "hidden" }}>
                         <div style={{ width: 40, background: "var(--color-bg-tertiary)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "grab", color: "var(--color-text-tertiary)" }}>
                             <GripVertical size={16} />
                         </div>
@@ -33,11 +34,11 @@ export default function WidgetEditorPage() {
                                 <div style={{ fontSize: "13px", color: "var(--color-text-secondary)" }}>Source: <strong>{w.source}</strong> • Query: <code className="mono" style={{ color: "var(--color-text-tertiary)" }}>{w.config}</code></div>
                             </div>
                             <div style={{ display: "flex", gap: "var(--space-2)" }}>
-                                <button className="btn btn-sm">Configure</button>
-                                <button className="btn btn-ghost" style={{ color: "var(--color-danger)", padding: 6 }}><Trash2 size={16} /></button>
+                                <Button variant="outline" size="sm">Configure</Button>
+                                <Button variant="ghost" size="sm" style={{ color: "var(--color-danger)", padding: 6 }} icon={<Trash2 size={16} />} />
                             </div>
                         </div>
-                    </div>
+                    </Card>
                 );
             })}
         </div>

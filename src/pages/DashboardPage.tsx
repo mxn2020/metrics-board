@@ -1,5 +1,6 @@
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import { TrendingUp, TrendingDown, Users, DollarSign, ShoppingCart, Activity } from "lucide-react";
+import { Button, Card } from "@geenius-ui/react-css";
 
 const revenueData = [
     { day: "Mon", val: 12400 }, { day: "Tue", val: 14500 }, { day: "Wed", val: 13200 },
@@ -21,15 +22,15 @@ export default function DashboardPage() {
                 <p style={{ color: "var(--color-text-secondary)", fontSize: "13px", marginTop: 4 }}>Live dashboard • Last refreshed just now</p>
             </div>
             <div style={{ display: "flex", gap: "var(--space-2)" }}>
-                <button className="btn btn-sm">7 Days</button>
-                <button className="btn btn-sm">30 Days</button>
-                <button className="btn btn-primary btn-sm">Share</button>
+                <Button variant="outline" size="sm">7 Days</Button>
+                <Button variant="outline" size="sm">30 Days</Button>
+                <Button variant="primary" size="sm">Share</Button>
             </div>
         </div>
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "var(--space-4)", marginBottom: "var(--space-6)" }}>
             {kpis.map(k => (
-                <div key={k.title} className="card" style={{ padding: "var(--space-5)" }}>
+                <Card key={k.title} padding="md">
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "var(--space-3)" }}>
                         <span style={{ color: "var(--color-text-secondary)", fontSize: "13px", fontWeight: 500 }}>{k.title}</span>
                         <k.icon size={18} style={{ color: k.color }} />
@@ -38,11 +39,11 @@ export default function DashboardPage() {
                     <div style={{ display: "flex", alignItems: "center", gap: 4, marginTop: "var(--space-2)", fontSize: "13px", fontWeight: 600, color: k.up ? "var(--color-success)" : "var(--color-danger)" }}>
                         {k.up ? <TrendingUp size={14} /> : <TrendingDown size={14} />} {k.change}
                     </div>
-                </div>
+                </Card>
             ))}
         </div>
 
-        <div className="card" style={{ padding: "var(--space-5)" }}>
+        <Card padding="md">
             <h2 style={{ fontSize: "16px", fontWeight: 600, marginBottom: "var(--space-5)" }}>Revenue Trend (7d)</h2>
             <ResponsiveContainer width="100%" height={300}>
                 <LineChart data={revenueData}>
@@ -52,6 +53,6 @@ export default function DashboardPage() {
                     <Line type="monotone" dataKey="val" stroke="var(--color-accent-primary)" strokeWidth={3} dot={{ fill: "var(--color-accent-primary)", r: 5 }} activeDot={{ r: 7, strokeWidth: 2 }} />
                 </LineChart>
             </ResponsiveContainer>
-        </div>
+        </Card>
     </div>);
 }
