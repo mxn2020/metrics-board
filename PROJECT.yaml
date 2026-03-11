@@ -1,5 +1,6 @@
-id: a46b2aa2-5ad8-4dec-9ddb-0d3f8e1f5b43
 name: metrics-board
+project_scope: main
+project_type: standalone
 description: React + TypeScript + Vite
 tier: prototype
 lane: oss
@@ -9,5 +10,6 @@ stack: [typescript, react, convex, vite]
 repo: "https://github.com/mxn2020/metrics-board"
 deploy_url: null
 last_active: 2026-02-25
-tags: []
-notes: 
+tags: [metrics, dashboard, analytics, monitoring, kpi, visualization, data]
+notes: null
+id: a46b2aa2-5ad8-4dec-9ddb-0d3f8e1f5b43
