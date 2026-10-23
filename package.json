@@ -43,7 +43,7 @@
   },
   "description": "Real-time metrics dashboard with customizable widgets",
   "author": "Mehdi Nabhani",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "keywords": [
     "metrics",
     "board",
